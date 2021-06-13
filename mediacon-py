@@ -8,7 +8,7 @@ try:
     from os import path
     sys.path.insert(0, path.abspath(path.join(path.dirname(__file__), '..')))
     
-    import core
+    import main
     from docopt import docopt
 except ModuleNotFoundError as error:
     print('[-] error: {}'.format(error))
