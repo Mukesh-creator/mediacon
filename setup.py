@@ -19,7 +19,7 @@ setup(
     author              = 'Mukesh',
     url                 = 'https://github.com/decoxviii/userrecon-py',
     packages            = find_packages(),
-    scripts             = ['bin/mediacon-py'],
+    scripts             = ['mediacon-py'],
     install_requires    = read_requirements(),
     classifiers = [
         'Programming Language :: Python3',
