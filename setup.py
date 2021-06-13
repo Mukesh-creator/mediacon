@@ -15,6 +15,7 @@ def read_requirements():
 
 setup(
     name                = 'mediacon-py',
+    version             = '1.0001',
     description         = 'Find usernames in social networks.',
     author              = 'Mukesh',
     url                 = 'https://github.com/Mukesh-creator/mediacon',
