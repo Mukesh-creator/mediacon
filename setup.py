@@ -17,7 +17,7 @@ setup(
     name                = 'mediacon-py',
     description         = 'Find usernames in social networks.',
     author              = 'Mukesh',
-    url                 = 'https://github.com/Mukesh-creator/mediacon/blob/main/mediacon-py',
+    url                 = 'https://github.com/Mukesh-creator/mediacon',
     packages            = find_packages(),
     scripts             = ['mediacon-py'],
     install_requires    = read_requirements(),
