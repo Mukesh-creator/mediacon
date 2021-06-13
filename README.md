@@ -1,3 +1,3 @@
 # mediacon
 
-See my yutube channel for installation procedure
+See my youtube channel for installation procedure
