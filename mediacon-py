@@ -7,32 +7,30 @@ import sys
 try:
     from os import path
     sys.path.insert(0, path.abspath(path.join(path.dirname(__file__), '..')))
-
-    from userrecon.version import __version__
-    from userrecon import core
+    
+    import core
     from docopt import docopt
 except ModuleNotFoundError as error:
     print('[-] error: {}'.format(error))
     sys.exit(1)
 
-usage = """userrecon-py v{}
+usage = """mediacon-py '1.0001'
 
 Usage:
-    userrecon target <username> [-o FILENAME]   
-    userrecon (-h | --help)
-    userrecon --version
+    mediacon target <username> [-o FILENAME]   
+    mediacon (-h | --help)
+    mediacon '1.0001'
 
 Options:
     -o, --output    save output in json format.
     -h, --help      show this screen.
-    --version       show version
-""".format(__version__)
+    '1.0001'
 
 def main(args):
-    core.print_sexy_banner()
+    main.print_sexy_banner()
     username = args['<username>']
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(core.verify_username(username))
+    loop.run_until_complete(main.verify_username(username))
 
     if args['--output']:
         filename = args['FILENAME']
@@ -41,5 +39,5 @@ def main(args):
 if __name__ == "__main__":
 
     # set arguments
-    args = docopt(usage, version='userrecon-py: v{}'.format(__version__))
+    args = docopt(usage, version='1.0001')
     main(args)
