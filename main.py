@@ -7,7 +7,7 @@ import json
 import sys
 
 try:
-    from userrecon.social_networks import links
+    from social_media import links
 
     import aiohttp
 except ModuleNotFoundError as error:
@@ -20,7 +20,7 @@ def print_sexy_banner():
 | \/ | |----   |    | | |-\  |     |   | | \ |
 |    | |----  _|____| | |  \ |____ |___| |  \|
 """.format('\033[32m', "1.0.01", "Mukesh", '\033[0m'))
-async def check_status(session, social_network, url, username):
+async def check_status(session, social_media, url, username):
     
     global results
     results = {}
@@ -28,10 +28,10 @@ async def check_status(session, social_network, url, username):
     url = url.format(username)
     try:
         async with session.get(url) as resp:
-            print('\033[33m[!] {:10}: {}\033[0m\033[J'.format(social_network, url), end='\r')
+            print('\033[33m[!] {:10}: {}\033[0m\033[J'.format(social_media, url), end='\r')
             if resp.status == 200:
-                print('\033[32m[+] {:10}: {}\033[0m\033[J'.format(social_network, url))
-                results[social_network] = url
+                print('\033[32m[+] {:10}: {}\033[0m\033[J'.format(social_media, url))
+                results[social_media] = url
         return resp.release()
     except:
         pass
@@ -44,7 +44,7 @@ async def verify_username(username):
     start = time()
     async with aiohttp.ClientSession() as session:
         tasks = [
-            check_status(session, social_network, url, username)
+            check_status(session, social_media, url, username)
             for social_network, url in links.items() 
         ]
         await asyncio.gather(*tasks)
